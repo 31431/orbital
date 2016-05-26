@@ -10,7 +10,7 @@
     <input type="file" multiple = '' name="fileToUpload[]" id="fileToUpload"><br />
     <input type="submit" value="Upload File" name="submit">
 </form>
-<?php 
+<?php phpinfo();
   ?>
 
 

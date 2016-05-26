@@ -65,7 +65,7 @@ for($i=0; $i<$total; $i++) {
     //Setup our new file path
         $temp = explode(".", $_FILES["fileToUpload"]["name"][$i]);
     $date = date_create();
-    $newfilename = date_timestamp_get($date).$_FILES['fileToUpload']['name'][$i] . '.' . end($temp);
+    $newfilename = date_timestamp_get($date).$_FILES['fileToUpload']['name'][$i];
     $newFilePath = "uploads/" . $newfilename;
 
   }
@@ -81,6 +81,9 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }}
 }
+
+include("icstoarray.php");
+print_r($newFilePath);
 ?>
 </body>
 </html>
