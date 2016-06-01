@@ -6,9 +6,10 @@
 <body><?php 
 
 $name= $_POST['name'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);  
+$userpassword = password_hash($_POST['password'], PASSWORD_DEFAULT);  
 $email = $_POST['email'];
 
+echo $userpassword;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -38,7 +39,7 @@ try {
 
     // sql to insert data
     $sql = "INSERT INTO userid(username, password, email)
-    VALUES ('$name','$password','$email')";
+    VALUES ('$name','$userpassword','$email')";
 
     // use exec() because no results are returned
     $conn->exec($sql);
