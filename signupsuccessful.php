@@ -6,32 +6,34 @@
 <body><?php 
 
 $name= $_POST['name'];
+// create passwordhash
 $userpassword = password_hash($_POST['password'], PASSWORD_DEFAULT);  
 $email = $_POST['email'];
 
-echo $userpassword;
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "orbital";
 		
+// var for identifying empty form		
 $location = null;
 $error = false;
 
-if (isset($_POST['name'])==false || $_POST['name']==NULL)
-	{ $location .= '&named=1';
-		$error = true;}
-
+// functions to check if the respective forms is empty and when redirect return the previous correct value
+if (isset($_POST['name'])==false || $_POST['name']==NULL){
+	$location = $location.'&named=1'.'&email='.$email; $error = true;}
 if (isset($_POST['password'])==0 || $_POST['password']==NULL){
-$location .= '&pass=1';$error = true;}
-
+	$location .= '&pass=1';$error = true;}
 if (isset($_POST['email'])==0 || $_POST['email']==NULL){
-$location .= '&emailed=1';$error = true;}
+	$location .= '&emailed=1'.'&name='.$name;$error = true;}
 
-if ($error == true) {header('Location: signup.php?'.$location);}
+// if there is error then the header will be run, else run the pdo code instead
+if ($error == true) {
+	header('Location: signup.php?'.$location);
+	}
 else {
 
-
+// writing into the database
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
@@ -48,13 +50,13 @@ try {
     }
 
 catch(PDOException $e)
-    {
+    { // catch error 23000 which is not unique username and redirect with email form filled
    		if ($e -> getcode() == 23000) {
-   		echo "The username has already exist.";	
+   		header('Location: signup.php?exist=1&email='.$email);	
    		}
    		else {
    			print($e->getMessage());
-   		}
+   			}
     
     }
 }
