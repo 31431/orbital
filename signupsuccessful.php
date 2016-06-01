@@ -46,7 +46,7 @@ try {
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "<script> 
-    alert('You have logged in successfully!');
+    alert('You have been registered successfully!');
     window.location.href='login.php';
     </script>";
     }
