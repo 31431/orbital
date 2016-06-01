@@ -9,7 +9,6 @@ $name= $_POST['name'];
 $userpassword = password_hash($_POST['password'], PASSWORD_DEFAULT);  
 $email = $_POST['email'];
 
-echo $userpassword;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -43,8 +42,10 @@ try {
 
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "You have been registered successfully";
-
+    echo "<script> 
+    alert('You have logged in successfully!');
+    window.location.href='login.php';
+    </script>";
     }
 
 catch(PDOException $e)
