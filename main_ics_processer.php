@@ -9,8 +9,8 @@ class user{
 	}
 
 	public function allfunctionsprocessing(){
-		$this->checkingInfo();
 		$this->setNameUsingFilename();
+		$this->checkingInfo();
 		$this->gettingWeekArray();
 		$this->printingArray();
 	}

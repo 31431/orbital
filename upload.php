@@ -2,9 +2,42 @@
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
 <?php
+
+//function to print an editing schedule table.
+function printEditingSchedule($array){
+   echo "<form action='showedited.php' method='post' enctype='multipart/form-data'>";
+   echo "<table>";
+   echo "<tr>"; // start of headers
+   echo "<td class='header'></td>";
+   foreach($array["Monday"]as $subkey=>$subvalue){
+      echo "<td class='header'>".$subkey."</td>";
+   }
+   echo"</tr>";
+
+   foreach($array as $day=>$value){
+      //start of printing the values
+      echo "<tr>";
+      echo "<td class='day'>".$day."</td>"; // print day
+      foreach($value as $subkey=>$subvalue){
+         if($subvalue==0){
+            echo "<td class='free'><input type='checkbox' name='userinput[$day][$subkey]' value={$day}T$subkey></td>";
+         } else {
+            echo "<td class='busy'>BUSY!</td>";
+         }
+
+      }
+      echo "</tr>";
+   }
+   echo "</table>";
+   echo "<input type='submit' value='Submit'>";
+}
+
+
+
 require_once("main_ics_processer.php");
 $user = array(); // Creating an array of user object. 0 index indicates the first user in the array.
 $target_dir = "uploads/";
@@ -137,15 +170,19 @@ $freeTimeArray = array(
 for($j=0;$j<$total;$j++){
    comparison($user[$j]->weekArray, $freeTimeArray);
 }
-
+/*
 echo "<br><br>=======Free Time Array=======<br><br>";
-testPrintArray($freeTimeArray);
+printTableArray($freeTimeArray);*/
+
+//To print a table for editing schedule.
+echo "<br><br>=======Table to edit time=======<br><br>";
+printEditingSchedule($freeTimeArray);
 
 
-
-
+//Editing Schedule!
 
 
 ?>
+<h2> Click <a href="index.php">here</a> to go back</h2>
 </body>
 </html>

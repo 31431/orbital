@@ -41,12 +41,18 @@ function convertTime($time0){
 
 function changeArray($event, &$array){
    $valuesummary = isset($event['SUMMARY']) ? $event['SUMMARY'] : '';
-    $valueDTSTART = isset($event['DTSTART']) ? $event['DTSTART'] : '';
-    $valueDTEND = isset($event['DTEND']) ? $event['DTEND'] : '';
-
+   $valueDTSTART = isset($event['DTSTART']) ? $event['DTSTART'] : '';
+   $valueDTEND = isset($event['DTEND']) ? $event['DTEND'] : '';
+   $valueDTSTART2 = isset($event['DTSTART2']) ? $event['DTSTART2'] : '';
    if(strpos($valuesummary, "Exam")!=false){
       return;
-   }
+   } else {
+      //To process the data that has been added when users edit their timetable
+      if($valuesummary == "EDITED"){
+         $day=substr($valueDTSTART2,0,-5);
+         $timeSlot=substr_replace($valueDTSTART2, "", -5);
+         $array[$day][$timeSlot] = 1;
+      } else {
    $timeBegin=convertTime( $valueDTSTART);
    $day=date("l",$timeBegin);
    $startTimeHour=date("H", $timeBegin);
@@ -54,10 +60,13 @@ function changeArray($event, &$array){
    $timeStop=convertTime($valueDTEND);
    $endTimeHour=date("H",$timeStop);
    $endTimeMin=date("i",$timeStop);
-   echo $day."<br>";
-   echo $startTimeHour."<br>";
    //calculate the interval in min.
    $interval = 60*($endTimeHour-$startTimeHour) + ($endTimeMin-$startTimeMin);
+   if($interval==0){
+      return;
+   }
+   echo $day."<br>";
+   echo $startTimeHour."<br>";
    echo "interval: ".$interval." mins<br>";
    //find the time slot
    $mins=30;
@@ -83,6 +92,8 @@ function changeArray($event, &$array){
       echo "Array Value== ".$array[$day][$timeSlot]."<br>";
 
       $count++;//updating count
+   }
+   }
    }  
 
 }
@@ -98,6 +109,33 @@ function printArray($array){
       }
    }
 }
+
+function printTableArray($array){
+   echo "<table>";
+   echo "<tr>";
+   echo "<td></td>";
+   foreach($array["Monday"]as $subkey=>$subvalue){
+      echo "<td>".$subkey."</td>";
+   }
+   echo"</tr>";
+
+   foreach($array as $key=>$value){
+     
+      echo "<tr>";
+      echo "<td>".$key."</td>";
+      foreach($value as $subkey=>$subvalue){
+         if($subvalue==0){
+            echo "<td></td>";
+         } else {
+            echo "<td class='busy'>BUSY!</td>";
+         }
+
+      }
+      echo "</tr>";
+   }
+   echo "</table>";
+}
+
 
 function testPrintArray($array){
    foreach($array as $key=>$value){
