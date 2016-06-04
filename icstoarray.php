@@ -50,7 +50,9 @@ function changeArray($event, &$array){
       //To process the data that has been added when users edit their timetable
       if($valuesummary == "EDITED"){
          $day=substr($valueDTSTART2,0,-5);
-         $timeSlot=substr_replace($valueDTSTART2, "", -5);
+         $timeSlot=substr($valueDTSTART2, -4);
+         echo "day = $day<br>";
+         echo "timeSlot = $timeSlot<br>";
          $array[$day][$timeSlot] = 1;
       } else {
    $timeBegin=convertTime( $valueDTSTART);

@@ -1,3 +1,28 @@
+<?php
+session_start();
+$usernameSession=$_SESSION['username'];
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $dbname = "orbital";
+      
+   $location = null;
+   $error = false;
+   try {
+    $database = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+         if ($e -> getcode() == 23000) {
+         echo "The username has already exist.";   
+         }
+         else {
+            print($e->getMessage());
+         }
+    
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,11 +129,18 @@ for($i=0; $i<$total; $i++) {
 
    if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";
+      echo "<h2> Click <a href='dashboard.php'>here</a> to go back</h2>";
+      exit();//Prevent the code from continue running.
       // if everything is ok, try to upload file
    } else {
       if (
             move_uploaded_file($tmpFilePath, $newFilePath)) {
          echo "The file ". basename( $_FILES["fileToUpload"]["name"][$i]). " has been uploaded.";
+         
+         //Updating the file name in SQL. 
+         $sql="UPDATE userid SET filename= '$newfilename' WHERE username='$usernameSession'";
+         $stmt = $database->prepare($sql);
+         $stmt->execute();
       } else {
          echo "Sorry, there was an error uploading your file.";
       }}
