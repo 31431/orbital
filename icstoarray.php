@@ -51,8 +51,8 @@ function changeArray($event, &$array){
       if($valuesummary == "EDITED"){
          $day=substr($valueDTSTART2,0,-5);
          $timeSlot=substr($valueDTSTART2, -4);
-         echo "day = $day<br>";
-         echo "timeSlot = $timeSlot<br>";
+         //echo "day = $day<br>";
+         //echo "timeSlot = $timeSlot<br>";
          $array[$day][$timeSlot] = 1;
       } else {
    $timeBegin=convertTime( $valueDTSTART);
@@ -67,15 +67,15 @@ function changeArray($event, &$array){
    if($interval==0){
       return;
    }
-   echo $day."<br>";
-   echo $startTimeHour."<br>";
-   echo "interval: ".$interval." mins<br>";
+   //echo $day."<br>";
+   //echo $startTimeHour."<br>";
+   //echo "interval: ".$interval." mins<br>";
    //find the time slot
    $mins=30;
    $timeSlot=$startTimeHour.$startTimeMin;
-   echo $timeSlot."first<br>";
+   //echo $timeSlot."first<br>";
    $array[$day][$timeSlot] = 1;
-   echo "Array Value== ".$array[$day][$timeSlot]."<br>";
+   //echo "Array Value== ".$array[$day][$timeSlot]."<br>";
    $count=1; //$count is used to count the number of times it loops through the while condition.
    while($count<($interval/30)){ 
       //If condition is implemented in the case that the minute == 60. However, there are a few assumptions: 
@@ -90,8 +90,8 @@ function changeArray($event, &$array){
       }
       $timeSlot=sprintf("%02d",$startTimeHour).$startTimeMin; // Combine string. sprintf is used for adding "0" in front of a single digit $startTimeHour;
       $array[$day][$timeSlot] = 1;//Initialise this slot to 1 or "busy";
-      echo "timeSlot== ".$timeSlot."<br>";
-      echo "Array Value== ".$array[$day][$timeSlot]."<br>";
+      //echo "timeSlot== ".$timeSlot."<br>";
+      //echo "Array Value== ".$array[$day][$timeSlot]."<br>";
 
       $count++;//updating count
    }
@@ -127,7 +127,7 @@ function printTableArray($array){
       echo "<td>".$key."</td>";
       foreach($value as $subkey=>$subvalue){
          if($subvalue==0){
-            echo "<td></td>";
+            echo "<td class='free'></td>";
          } else {
             echo "<td class='busy'>BUSY!</td>";
          }
@@ -205,13 +205,13 @@ function fillingArray($file, &$weekArray){
    //for printing the array
    foreach($icsarrays as $x=>$a){
       $count++;
-      echo "<br><br>====== section {$x} ======<br>";
+      //echo "<br><br>====== section {$x} ======<br>";
       foreach($a as $b=>$c){
          /* if ($b== "SUMMARY" || $b== "RRULE" ||$b=="DTSTART" || $b=="DTEND" || $b== "EXDATE" || $count==1) {
             echo $b.": ".$c."\n";
             }*/
          if ($b== "SUMMARY" || $b== "RRULE"|| $count==1) {
-            echo $b.": ".$c."<br>";
+            //echo $b.": ".$c."<br>";
          } else {
             if ($b=="DTSTART" || $b=="DTEND"|| $b== "EXDATE") {
                /*echo date("Y/m/d l h:i", convertTime($c))."\n";
@@ -221,8 +221,8 @@ function fillingArray($file, &$weekArray){
 
                //Printing our DATE and TIME
                $convertedTime = convertTime($c);
-               echo $b." "."DATE :".date("Y/m/d l", $convertedTime)."<br>";
-               echo $b." "."TIME :".date("H"."i", $convertedTime)."<br>";
+               //echo $b." "."DATE :".date("Y/m/d l", $convertedTime)."<br>";
+               //echo $b." "."TIME :".date("H"."i", $convertedTime)."<br>";
 
 
             }
@@ -232,10 +232,10 @@ function fillingArray($file, &$weekArray){
 
    }
    foreach($icsarrays as $key=>$eventNo){
-      echo "key: ".$key."<br>";
+      //echo "key: ".$key."<br>";
       changeArray($eventNo, $weekArray);
    }
-   echo "***************"."Busy Schedule"."***************<br>";
+   //echo "***************"."Busy Schedule"."***************<br>";
    //testPrintArray($weekArray);
 }
 

@@ -32,7 +32,7 @@
 <?php
 include("main_ics_processer.php");
 function printEditingSchedule($array){
-   echo "<form action='showedited.php' method='post' enctype='multipart/form-data'>";
+   echo "<form action='".$_SERVER['PHP_SELF']."' method='post' enctype='multipart/form-data'>";
    echo "<table>";
    echo "<tr>"; // start of headers
    echo "<td class='header'></td>";
@@ -57,6 +57,10 @@ function printEditingSchedule($array){
    }
    echo "</table>";
    echo "<input type='submit' value='Submit'>";
+   echo "</form>";
+   echo "<form action='group.php'>";
+   		echo "<input type='submit' value='Confirm'>";
+   echo "</form>";
 }
 
 
@@ -74,9 +78,9 @@ function printEditingSchedule($array){
 	echo $filename."<br>";
 	$icsfile=fopen("uploads/{$filename}","a+") or die("Error has occured. Cannot open file!");
 	foreach($_POST['userinput'] as $day=>$subkey){
-		echo "$day<br>";
+		//echo "$day<br>";
 		foreach($subkey as $timeslot => $value){
-		echo "$timeslot : $value<br>";
+		//echo "$timeslot : $value<br>";
 		fputs($icsfile, "
 BEGIN:VEVENT
 SUMMARY:EDITED

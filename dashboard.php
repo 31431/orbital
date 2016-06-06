@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
 <?php
-	echo $_SESSION['username']."<br>";
+	echo "Welcome, ".$_SESSION['username']."!<br>";
 ?>
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Select files to upload:
