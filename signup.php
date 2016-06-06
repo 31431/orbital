@@ -13,12 +13,15 @@ Name: <input type="text" name="name" value= "<?php if (isset($_GET['name'])){ ec
 Password: <input type="password" name="password"><?php if (isset($_GET['pass'])) {echo "Please input your password";}?><br>
 
 E-mail: <input type="text" name="email" value= "<?php if (isset($_GET['email'])){ echo $_GET['email'];} ?>" >
-	<?php if (isset($_GET['emailed'])) {echo "Please input your email";}
-	if (!filter_var(isset($_POST['email']), FILTER_VALIDATE_EMAIL)) 
-		{
-     	echo "Invalid email format"; 
-    	}
-    ?><br>
+	<?php 
+	if (isset($_GET['emailed'])) {
+		echo "Please input your email ";
+	}
+	if (!isset($_GET['emailed'])&&isset($_GET['emailformaterror']) && !filter_var(isset($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+     echo "Invalid email format"; 
+    }
+    ?>
+<br>
  
 
 <input type="submit">

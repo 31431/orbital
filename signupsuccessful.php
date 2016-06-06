@@ -26,6 +26,8 @@ if (isset($_POST['password'])==0 || $_POST['password']==NULL){
 	$location .= '&pass=1';$error = true;}
 if (isset($_POST['email'])==0 || $_POST['email']==NULL){
 	$location .= '&emailed=1'.'&name='.$name;$error = true;}
+if (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+  $location .= '&emailformaterror=1&email='.$email.'&name='.$name;$error=true;}
 
 // if there is error then the header will be run, else run the pdo code instead
 if ($error == true) {
