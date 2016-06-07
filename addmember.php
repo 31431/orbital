@@ -64,10 +64,8 @@ foreach ($groupMemberArray as $key => $value) {
 	}
 }
 printTableArray($freeTimeArray);
-
-
-
 ?>
+<h2>Click <a href="peopledependent.php">here</a> to get the schedule for selected users only</h2>
 
 </body>
 </html>

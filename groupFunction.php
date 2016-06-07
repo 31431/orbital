@@ -142,7 +142,7 @@ function listingAllGroups($usernameSession){
 			echo "<input type='radio' name='groupNameSelected' value='$subvalue'> $groupName";
 		}
 	}
-	echo "<input type='submit' value='Go!' name='submit'>";
+	echo " <input type='submit' value='Go!' name='submit'>";
 	echo "</form>";
 	unset($_SESSION['groupID']);
 }

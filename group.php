@@ -25,10 +25,10 @@
 <?php
 	include("groupFunction.php");
 	$usernameSession = $_SESSION['username'];
-	echo "Welcome, ".$_SESSION['username']."!<br>";
+	echo "<h1>Welcome, ".$_SESSION['username']."!</h1>";
 	listingAllGroups($_SESSION['username']);
 ?>
-<h1>Click <a href="creatinggroup.php">here</a> to create group!</h1>
+<br>
 <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
 	Group name: <input type="text" name="groupName">
 	<input type="submit" name="submit">
