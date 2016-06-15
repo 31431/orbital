@@ -10,12 +10,13 @@ $user=$_SESSION['username'];
 </head>
 <body>
 <?php
-	echo "<h1>Welcome, ".$_SESSION['username']."!</h1>";
-	$sql="SELECT filename FROM userid WHERE id='$user'";
+	echo "<h1>Welcome, $user!</h1>";
+	$sql="SELECT filename FROM userid WHERE username='$user'";
 	$stmt=$database->prepare($sql);
 	$stmt->execute();
 	$filename=$stmt->fetchColumn();
-	if($filename=NULL){
+	echo $filename;
+	if($filename==NULL){
 		echo "<h2>Please upload your .ics file</h2>";
 	} else {
 		header("location: group.php");

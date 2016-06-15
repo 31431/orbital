@@ -70,7 +70,7 @@ function printEditingSchedule($array){
 	//echo "<br>";
 	$username=$_SESSION['username'];
 	echo $username."<br>";
-	$sql= "SELECT filename FROM userid WHERE username= $username";
+	$sql= "SELECT filename FROM userid WHERE username= '$username'";
 	$stmt = $database->prepare($sql);
 	$stmt->execute();
 	$dataArray= $stmt->fetch(PDO::FETCH_ASSOC);

@@ -72,7 +72,7 @@ function creatingGroup($usernameSession, $groupName){
 	$lastgroupid = $database->lastInsertID();
 	$_SESSION['groupID']=$lastgroupid;
 	addingGroupMember($lastgroupid,$usernameSession);
-	echo "<h1>$groupName has been created successfully!<br></h1>";
+	echo "<h1>'$groupName' has been created successfully!<br></h1>";
 }
 
 //function to check whether the username alr exists 
@@ -135,6 +135,9 @@ function listingAllGroups($usernameSession){
 	$stmt = $database->prepare($sql);
 	$stmt->execute();
 	$groupArray=$stmt->fetchAll(PDO::FETCH_ASSOC);
+	if(empty($groupArray)){
+		echo "<h2> You have no groups! Please create one!</h2>";
+	} else {
 	echo "<form action='addmember.php' method='post'>";
 	foreach($groupArray as $key=>$value){
 		foreach ($value as $subkey => $subvalue) {
@@ -144,6 +147,7 @@ function listingAllGroups($usernameSession){
 	}
 	echo " <input type='submit' value='Go!' name='submit'>";
 	echo "</form>";
+	};	
 	unset($_SESSION['groupID']);
 }
 

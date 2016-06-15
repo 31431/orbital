@@ -30,7 +30,7 @@
 ?>
 <br>
 <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
-	Group name: <input type="text" name="groupName">
+	New Group Name: <input type="text" name="groupName">
 	<input type="submit" name="submit">
 </form>
 <?php
