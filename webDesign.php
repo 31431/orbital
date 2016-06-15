@@ -5,6 +5,9 @@
 	<script type="text/javascript" src="main.js"></script>
 	<title>COEO</title>
 	<link type="text/css" rel="stylesheet" href="style.css"></link>
+	<!---Fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div class="modal">
@@ -16,8 +19,13 @@
 		</div>
 	</div>
 	<div class="navbar">
-		<p>Navigation Bar</p>
-		<p id="login">Login/Register</p>
+		<p id= "coeo" style="margin-top:0px">COEO</p>
+		<div class="menu" style="float:right;">
+			<p >Home</p>
+			<p>About</p>
+			<p>Contact Us</p>
+			<p id="login">Login</p>
+		</div>
 	</div>
 	<div class="main">
 		<div class="slider">
