@@ -32,8 +32,8 @@
 	<div class="main">
 		<div class="slider">
 			<div class="slide">	
-				<p>Welcome to <span style="font-size: 150px">COEO</span></p>
-				<h4 style="text-align: center;margin:-10px; font-size:30px;"><em>Bringing People Together</em></h4>
+				<p><span style="font-size: 150px">COEO</span></p>
+				<p id="tagline" style="text-align: center; margin-top:-30px; font-size:30px;">Arranging a meeting has never been this easy</p>
 			</div>
 			<div class="slide" style="background-color:grey;">
 				<p style="font-color: white">Easy to use</p>
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	<div class="footer">
-		<p>Footer</p>
+		<p style="text-align: left;"> &copy COEO 2016</p>
 	</div>
 
 </body>
