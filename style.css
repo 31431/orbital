@@ -40,7 +40,7 @@ td {
 
 .navbar{
 	width: 100%;
-	height:75px;
+	height:47px;
 	background-color: #3498db;
 	display: block;
 	margin-top: 0px;
@@ -59,21 +59,21 @@ td {
 .menu> p, .menu>a, .navbar>p{
 	font-family: 'Roboto', sans-serif;
 	display: inline-block;
-	font-size: 25px;
+	font-size: 14px;
 	color: white;
 	position:relative;
 	margin-right: 30px;
 	transition: linear 0.5px;
 }
 .menu>p:hover{
-	border-bottom: solid white 5px;
+	border-bottom: solid white 2px;
 
 }
 
 
-
 #login{
-	font-size: 25px;
+
+	font-size: 13px;
 	padding: 10px;
 	background-color: white;
 	transition: linear 0.1s;
@@ -83,14 +83,15 @@ td {
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-bottom: 6px;
 }
 
 #login:hover{
 	
 	cursor: pointer;
-	color: black;
-	background-color: #eaf4fb;
+	color: white;
+	background-color: #2b3856;
+	border-bottom: none;
 }
 .main{
 	width: 100%;
@@ -175,7 +176,7 @@ td {
 
 #coeo{
 	float: left;
-	font-size: 50px;
+	font-size: 27px;
 	padding-left: 50px;
 	font-family: 'Montserrat', sans-serif;;
 }

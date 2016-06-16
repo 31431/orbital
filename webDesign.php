@@ -26,6 +26,8 @@
 			<p>Contact Us</p>
 			<p id="login">Login</p>
 		</div>
+		
+
 	</div>
 	<div class="main">
 		<div class="slider">
