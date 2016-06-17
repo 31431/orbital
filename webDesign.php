@@ -2,7 +2,7 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script type="text/javascript" src="main_2.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 	<title>COEO</title>
 	<link type="text/css" rel="stylesheet" href="style.css"></link>
 	<!---Fonts-->
@@ -31,13 +31,28 @@
 	</div>
 	<div class="main">
 		<div class="slider">
-			<div class="slide">	
-				<p><span style="font-size: 150px">COEO</span></p>
+			<div class="sliderController">
+				<p id="slideBack" style="font-size: 100px; color: white; float: left; 	left: 2%;cursor:pointer"><</p>
+				<p id="slideNext" style="font-size: 100px; color: white; float: right; right: 2%;cursor:pointer">></p>
+			</div>
+			<div class="navdot">
+				<ul>
+					<li id="dot1" class="active"></li>
+					<li id="dot2"></li>
+				</ul>
+			</div>
+			<div class="slide" id="first">	
+				<p><span style="font-size: 150px" >COEO</span></p>
 				<p id="tagline" style="text-align: center; margin-top:-30px; font-size:30px;">Arranging a meeting has never been this easy</p>
 			</div>
 			<div class="slide" style="background-color:grey;">
 				<p style="font-color: white">Easy to use</p>
 			</div> 
+			<div class="slide" id="first">	
+				<p><span style="font-size: 150px" >COEO</span></p>
+				<p id="tagline" style="text-align: center; margin-top:-30px; font-size:30px;">Arranging a meeting has never been this easy</p>
+			</div>
+
 		</div>
 	</div>
 	<div class="footer">
