@@ -58,8 +58,8 @@ $(document).ready(function(){
 	});
 
 	$('#slideNext').click(function(){
-		currentSlide++;
 		$slideContainer.animate({'margin-left':'-='+width+'%'},animationSpeed,function(){
+			currentSlide++;
 			$dotContainer.removeClass("active");
 			if(currentSlide==$slides.length){
 				currentSlide=1;
