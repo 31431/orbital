@@ -62,12 +62,16 @@ td {
 	font-size: 14px;
 	color: white;
 	position:relative;
-	margin-right: 30px;
-	transition: linear 0.5px;
+	margin-right: 20px;
+	transition: linear 0.1s;
+	cursor: pointer;
+	border: 1px #3498db solid; 
+	padding: 2px 5px 2px 5px;
 }
 .menu>p:hover{
-	border-bottom: solid white 2px;
-
+	/*border-bottom: solid white 2px; */
+	border: 1px white solid; 
+	padding: 2px 5px 2px 5px;
 }
 
 
@@ -84,14 +88,13 @@ td {
 	padding-right: 20px;
 	padding-top: 5px;
 	padding-bottom: 6px;
+	border: 1px #3498db solid; 
 }
 
 #login:hover{
-	
 	cursor: pointer;
 	color: white;
 	background-color: #2b3856;
-	border-bottom: none;
 }
 .main{
 	width: 100%;
@@ -172,24 +175,46 @@ td {
 	height: 100%;
 	overflow: auto;
 	background-color: rgba(0,0,0,0.6);
+	top: 0;
+	padding-top: 15%;
 }
 
 .modal-content{
 	background-color: white;
-	margin: 15% auto;
+	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
+	border-radius: 10px;
 	width: 50%;
+	position: relative;
 	color:black;
+	-webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    padding-top: 6px;
+    padding-right: 10px;
+}
+
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity:0}
+    to {top: 0px;opacity:1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity:0}
+    to {top: 0px;opacity:1}
 }
 
 .close{
 	color: #aaa;
 	float: right;
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: bold;
 	transition: 0.2s linear;
+	font-family: Arial;
 }
+
 
 .close:hover{
 	cursor: pointer;
@@ -198,8 +223,9 @@ td {
 
 #coeo{
 	float: left;
-	font-size: 27px;
+	font-size: 35px;
 	padding-left: 50px;
 	font-family: 'Montserrat', sans-serif;
+	border: none;
 }
 

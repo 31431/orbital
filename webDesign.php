@@ -2,7 +2,7 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="main_2.js"></script>
 	<title>COEO</title>
 	<link type="text/css" rel="stylesheet" href="style.css"></link>
 	<!---Fonts-->
