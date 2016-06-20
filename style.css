@@ -184,18 +184,19 @@ td {
 .modal-content{
 	background-color: white;
 	margin: auto;
-	padding: 20px;
-	border: 1px solid #888;
 	border-radius: 10px;
-	width: 50%;
+	width: 30%;
 	position: relative;
 	color:black;
 	-webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-    padding-top: 6px;
-    padding-right: 10px;
+    padding-top: 0px;
+    overflow: hidden;
+    height: 55%;
+    min-height: 300px;
+    max-height: 550px;
 }
 
 @-webkit-keyframes animatetop {
@@ -209,12 +210,15 @@ td {
 }
 
 .close{
-	color: #aaa;
-	float: right;
+	color: #e6e6e6;
 	font-size: 24px;
 	font-weight: bold;
 	transition: 0.2s linear;
 	font-family: Arial;
+	display: block;
+	margin-right: 10px;
+	text-align: right;
+
 }
 
 
@@ -282,4 +286,58 @@ td {
 .navdot ul .active{
 	background-color: white;
 	transition: 0.3s;
+}
+
+.modalHeader{
+	background-color: #3498db;
+	color: white;
+	text-align: center;
+	margin: 0px ;
+	height: 20%;
+}
+
+#modalCoeo{
+	margin: 0;
+	height: 100%;
+	font-family: "Montserrat";
+	font-size: 65px;
+	padding-bottom: 5px;
+	position: relative;
+	top: -15%;
+}
+
+.modalBody{
+	padding-top: 10%;
+	text-align: center;
+}
+
+.modalBody form input{
+	width: 60%;
+	height: 26px;
+	font-size: 20px;
+	text-align:center;
+	color: #6d6c6c;
+}
+.modalBody form input :focus{
+	border: blue 1px solid 0.5;
+}
+
+#loginButton{
+	background-color: #3498db;
+	height: 30px;
+	border: none;
+	color: white;
+	border: 1px solid white;
+	border-radius: 15px;
+	font-size:25px;
+	transition: 0.2s linear;
+	cursor: pointer;
+
+}
+
+#loginButton:hover{
+	background-color: white;
+	color:#3498db;	
+	border: 1px solid #3498db;
+
 }
