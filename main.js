@@ -96,6 +96,66 @@ $(document).ready(function(){
 	
 	$('.close').click(function(){
 		$('.modal').css('display','none');
-	})
+	});
+
+	//For Login Ajax Request
+	$('#loginButton').click(function(event){
+		event.preventDefault();
+		$('#errorMessage').text("");
+		var dataObject= {};
+		var error=false;
+		dataObject['username']= $('#username').val();
+		dataObject['password']= $('#password').val();
+		console.log(dataObject);
+		if(dataObject['username']==""){
+			$('#errorMessage').html("Please fill in username <br>");
+			error=true;
+			$('#password').val("");
+			$('#username').addClass("inputEmpty");
+		}
+		if(dataObject['password']==""){
+			$('#errorMessage').append("Please fill in password");
+			error=true;
+			$('#password').addClass("inputEmpty");
+		}
+
+		//If there are no errors, ajax request will be executed.
+		if( error==false){
+			$.ajax({
+			url: 'loginProcessing.php',
+			type: 'POST',
+			data: dataObject,
+			dataType: 'text',
+			beforeSend: function(){$("#errorMessage").text("Connecting...");},
+			success: function(response){
+				var obj = JSON.parse(response);
+				console.log(obj.message);
+				if(obj.message=='ok'){
+					window.location.href="dashboard.php";
+					alert("Login Successfully");
+				} else {
+					$("#errorMessage").text(obj.message);
+					//$('#username').val("");
+					$('#password').val("");
+				}
+			},
+			error: function(response, status,thrown){
+				$("#errorMessage").text("Error! Please try again later. If the problem persists, please contact us!");
+				
+			}
+		});
+		}
+
+		$('#username').focus(function(){
+			$(this).removeClass("inputEmpty");
+		})
+
+		$('#password').focus(function(){
+			$(this).removeClass("inputEmpty");
+		})
+
+
+	});
+
 
 });

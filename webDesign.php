@@ -67,13 +67,14 @@ try {
 				<p id="modalCoeo">COEO</p>				
 			</div>
 			<div class="modalBody">
-				<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-					<input type="text" name="username" placeholder="Username"><br><br>
-					<input type="password" name="password" placeholder="Password"><br><br>
+				<form  method="post">
+					<input type="text" id="username" placeholder="Username"><br><br>
+					<input type="password" id="password" placeholder="Password"><br>
+					<p id="errorMessage" style="color:red"></p>
 					<input type="submit" name="submit" value="LOG IN" id="loginButton"><br>
 				</form>
+				<a href="signup.php" id="modalSignup">No account? <br>Sign up for free!</a>
 			</div>
-			<p>Click <a href="index.php" style="text-decoration: none;color:blue;">here </a>to index.php</p>
 		</div>
 	</div>
 	<div class="navbar">
@@ -104,7 +105,7 @@ try {
 				<p id="tagline" style="text-align: center; margin-top:-30px; font-size:30px;">Arranging a meeting has never been this easy</p>
 			</div>
 			<div class="slide" style="background-color:grey;">
-				<p style="font-color: white">Easy to use</p>
+				<p style="font-color: white">Connecting The Dots</p>
 			</div> 
 			<div class="slide" id="first">	
 				<p><span style="font-size: 150px" >COEO</span></p>
