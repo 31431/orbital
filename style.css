@@ -40,10 +40,9 @@ td {
 
 .navbar{
 	width: 100%;
-	height:47px;
+	height:50px;
 	background-color: #3498db;
 	display: block;
-	margin-top: 0px;
 	clear: both;
 	position: fixed;
 }
@@ -65,12 +64,11 @@ td {
 	margin-right: 20px;
 	transition: linear 0.1s;
 	cursor: pointer;
-	border: 1px #3498db solid; 
 	padding: 2px 5px 2px 5px;
 }
 .menu>p:hover{
 	/*border-bottom: solid white 2px; */
-	border: 1px white solid; 
+	border-bottom: 1px white solid; 
 	padding: 2px 5px 2px 5px;
 }
 
@@ -186,7 +184,7 @@ td {
 	background-color: white;
 	margin: auto;
 	border-radius: 10px;
-	position: relative;
+	position: left;
 	color:black;
 	-webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -194,8 +192,10 @@ td {
     animation-duration: 0.4s;
     padding-top: 0px;
     overflow: hidden;
-    height: 500px;
-    width: 350px;
+    height: 300px;
+    width: 400px;
+    font-size: 13px;
+    font-family: "Roboto";
 }
 
 @-webkit-keyframes animatetop {
@@ -210,14 +210,14 @@ td {
 
 .close{
 	color: #e6e6e6;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	transition: 0.2s linear;
 	font-family: Arial;
 	display: block;
 	margin-right: 10px;
 	text-align: right;
-	padding: 2px 2px 2px 2px;
+	padding: 3px 3px 3px 3px;
 }
 
 
@@ -226,12 +226,17 @@ td {
 	color:black;
 }
 
-#coeo{
+#cleeque{
 	float: left;
-	font-size: 35px;
-	padding-left: 50px;
+	font-size: 30px;
+	padding-left: 10px;
 	font-family: 'Montserrat', sans-serif;
 	border: none;
+}
+#logo{
+	margin-left: 50px;
+	margin-top: 2px;
+	position: relative;
 }
 
 .sliderController{
@@ -299,23 +304,24 @@ td {
 	margin: 0;
 	height: 100%;
 	font-family: "Montserrat";
-	font-size: 65px;
+	font-size: 30px;
 	padding-bottom: 5px;
 	position: relative;
-	top: -15%;
+	top: -25%;
 }
 
 .modalBody{
-	padding-top: 15%;
+	padding-top: 10%;
 	text-align: center;
 }
 
 .modalBody form input{
-	width: 60%;
-	height: 26px;
-	font-size: 20px;
-	text-align:center;
+	width: 85%;
+	height: 25px;
+	font-size: 15px;
+	text-align:left;
 	color: #6d6c6c;
+	padding-left: 5px;
 }
 .modalBody form input :focus{
 	border: #cccccc 1px solid;
@@ -325,14 +331,17 @@ td {
 
 #loginButton{
 	background-color: #3498db;
+	width: 30%;
 	height: 30px;
 	border: none;
 	color: white;
 	border: 1px solid white;
 	border-radius: 15px;
-	font-size:25px;
+	font-size:15px;
 	transition: 0.1s linear;
 	cursor: pointer;
+	text-align: center;
+	margin-top: 5%;
 
 }
 
@@ -343,23 +352,29 @@ td {
 }
 
 #modalSignup{
+	font-family: "Roboto";
 	background-color: #e85343;
 	color: white;
 	position: relative;
 	display: inline-block;
-	width: 60%;
+	width: 20%;
 	text-align: center;
-	padding: 2px 5px 2px 5px;
+	padding: 3px 5px 2px 5px;
 	cursor: pointer;
 	font-size: 20px;
-	margin-top: 6%;
-	border-radius: 6px;
-	height: 50px;
+	margin-top: 0%;
+	border-radius: 10px;
+	height: 20px;
 	transition: 0.1s;
 	border: 1px solid #e85343;
 	text-decoration: none;
+	font-size: 15px;
+	margin-left:10px; 
 }
-
+#account{
+	font-size: 20px;
+	text-align: left;
+}
 #modalSignup:hover{
 	color:#e85343 ;
 	background-color:white;
