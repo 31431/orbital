@@ -24,7 +24,7 @@ include("main_ics_processer.php");
 <h2>The current group is "<?php echo gettingGroupNameFromID($_SESSION['groupID']);?> "</h2>
 <h2>The current group ID is <?php echo $_SESSION['groupID'];?></h2>
 <form action= '<?php $_SERVER['PHP_SELF']?>' method='POST'>
-	Add Group Member: <input type ='text' name='username' value='Username'>
+	Add Group Member: <input type ='text' name='username' placeholder='Username'>
 	<input type='submit' name='submit' value='Add Member'>
 </form>
 <?php

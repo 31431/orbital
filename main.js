@@ -1,4 +1,6 @@
-'use strict';
+$(document).load(function(){
+	$(".loaderGIF").fadeOut(fast);
+})
 
 
 
@@ -95,7 +97,8 @@ $(document).ready(function(){
 	});
 	
 	$('.close').click(function(){
-		$('.modal').css('display','none');
+		//$('.modal').css('display','none');
+		$('.modal').fadeOut(200);
 	});
 
 	//For Login Ajax Request
@@ -153,8 +156,12 @@ $(document).ready(function(){
 		$('#password').focus(function(){
 			$(this).removeClass("inputEmpty");
 		})
+	});
 
-
+	//For responsive Nav Bar (Three line menu drop down when resizing window)
+	var mainMenu=document.getElementsByClassName('mainMenu');
+	$('#responsiveNavButton').click(function(){
+		$('.mainMenu').toggleClass("responsive",200);
 	});
 
 
