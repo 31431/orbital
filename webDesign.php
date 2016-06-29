@@ -55,7 +55,7 @@ try {
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
-	<title> COEO</title>
+	<title> CLEEQUE</title>
 	<link type="text/css" rel="stylesheet" href="style.css"></link>
 	<!---Fonts-->
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>

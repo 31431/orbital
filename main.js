@@ -115,11 +115,13 @@ $(document).ready(function(){
 			error=true;
 			$('#password').val("");
 			$('#username').addClass("inputEmpty");
+			$('#loginButton').css("margin-top","0");
 		}
 		if(dataObject['password']==""){
 			$('#errorMessage').append("Please fill in password");
 			error=true;
 			$('#password').addClass("inputEmpty");
+			$('#loginButton').css("margin-top","0");
 		}
 
 		//If there are no errors, ajax request will be executed.

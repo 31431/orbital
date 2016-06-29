@@ -221,10 +221,12 @@ td {
 	font-weight: bold;
 	transition: 0.2s linear;
 	font-family: Arial;
-	display: block;
+	display: inline-block;
 	margin-right: 10px;
 	text-align: right;
 	padding: 3px 3px 3px 3px;
+	position: relative;
+	left: 190px;
 }
 
 
