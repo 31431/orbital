@@ -42,9 +42,7 @@ function comparison($array1, &$freeTimeArray){
 				foreach ($value1 as $subkey1 => $subvalue1) {
 					foreach ($value2 as $subkey2 => $subvalue2) {
 						if($subkey1==$subkey2){
-							if($subvalue1 == 1 || $subvalue2==1){
-								$freeTimeArray[$key1][$subkey1]=1;
-							}
+								$freeTimeArray[$key1][$subkey1]+=$subvalue1;
 						}
 					}
 				}

@@ -88,7 +88,7 @@ try {
 				<p>About</p>
 				<p>Contact Us</p>
 			</div>
-			<p id="login">Login</p>
+			<p id="login">Sign In</p>
 			<p id="responsiveNavButton"> &#9776; Menu</p>
 		</div>
 		

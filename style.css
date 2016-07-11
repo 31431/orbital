@@ -75,7 +75,7 @@ td {
 }
 
 
-#login{
+#login, #usernameNav{
 	margin-top: 11px;
 	font-family: 'Roboto', sans-serif;
 	display: inline-block;

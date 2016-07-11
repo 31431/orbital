@@ -136,8 +136,9 @@ $(document).ready(function(){
 				var obj = JSON.parse(response);
 				console.log(obj.message);
 				if(obj.message=='ok'){
-					window.location.href="dashboard.php";
+					window.location.href="loginPage.php";
 					alert("Login Successfully");
+					$_SESSION['username']=dataObject['username'];
 				} else {
 					$("#errorMessage").text(obj.message);
 					//$('#username').val("");
@@ -161,10 +162,13 @@ $(document).ready(function(){
 	});
 
 	//For responsive Nav Bar (Three line menu drop down when resizing window)
-	var mainMenu=document.getElementsByClassName('mainMenu');
 	$('#responsiveNavButton').click(function(){
 		$('.mainMenu').toggleClass("responsive",200);
 	});
+
+	$('body').not('#responsiveNavButton').click(function(){
+		console.log(this);
+	})
 
 
 });
