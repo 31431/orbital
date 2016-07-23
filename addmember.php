@@ -59,8 +59,9 @@ foreach ($groupMemberArray as $key => $value) {
 		initialiseWeekArray($userTimeslotArray);
 		$filename=gettingFilename($subvalue);
 		//echo "Filename for $subvalue is $filename<br>";
-		fillingArray('uploads/'.$filename,$userTimeslotArray);
-		comparison($userTimeslotArray, $freeTimeArray);
+		$userTimeSlotArray = unserialize($filename);
+		
+		comparison($userTimeSlotArray, $freeTimeArray);
 	}
 }
 printTableArray($freeTimeArray);

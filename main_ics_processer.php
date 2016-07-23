@@ -51,6 +51,8 @@ function comparison($array1, &$freeTimeArray){
 	}
 }
 
+
+
 function initialiseWeekArray(& $arrayInput){
 	$dayArray = array(
          "0600"=>0,
@@ -122,7 +124,7 @@ for($i=0;$i<5;$i++){
 }
 echo $user2->name;*/
 
-
-
 }
+
+
 ?>

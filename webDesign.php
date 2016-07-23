@@ -20,6 +20,17 @@ try {
    		}
     
     }
+    //NUSNET connection API
+    require_once 'LightOpenID-master/openid.php';
+	$openid= new LightOpenID("localhost/Orbitals_Local_Server/webDesign.php");
+
+	$openid->identity = 'https://openid.nus.edu.sg/';
+	$openid->required = array(
+		'contact/email',
+		'namePerson/friendly',
+		'namePerson');
+	$openid->returnUrl = 'http://localhost/Orbitals_Local_Server/nusnetlogin.php';
+
     if(isset($_POST['submit'])){
     	$errMessage='';
     	$username=trim($_POST['username']);
@@ -69,6 +80,9 @@ try {
 				<p id="modalCleeque">CLEEQUE</p>				
 			</div>
 			<div class="modalBody">
+				<a href='<?php echo $openid->authUrl()?>' style="text-decoration:none;"><div class="nusnetLogin">
+					<p>Login with NUSNET</p>
+				</div></a>
 				<form  method="post">
 					<input type="text" id="username" placeholder="Username"><br><br>
 					<input type="password" id="password" placeholder="Password"><br>

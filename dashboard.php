@@ -23,9 +23,9 @@ $user=$_SESSION['username'];
 	}
 ?>
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="upload2.php" method="post" enctype="multipart/form-data">
     Select files to upload:
-    <input type="file" multiple = '' name="fileToUpload[]" id="fileToUpload"><br />
+    <input type="file" name="fileToUpload" id="fileToUpload"><br />
     <input type="submit" value="Upload File" name="submit">
 </form>
 </body>

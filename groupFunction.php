@@ -160,6 +160,14 @@ function gettingFilename($userID){
 	return $stmt->fetchColumn();
 }
 
+function gettingFilenameWithUsername($username){
+	include("databaseconnection.php");
+	$sql= "SELECT filename FROM userid WHERE username='$username' ";
+	$stmt = $database->prepare($sql);
+	$stmt->execute();
+	return $stmt->fetchColumn();
+}
+
 
 
 

@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	$username=$_SESSION['username'];
+	include("groupFunction.php");
+	include("main_ics_processer.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,14 +44,38 @@
 				<p>About</p>
 				<p>Contact Us</p>
 			</div>
-			<p id="usernameNav"><?php echo $username?></p>
+			<p id="usernameNav"><?php echo $_SESSION['username'] ?></p>
 			<p id="responsiveNavButton"> &#9776; Menu</p>
 		</div>
 		
 
 	</div>
 	<div class="main">
-		
+		<div class="mainHeader">
+			<h1 id="welcomeHeader"><?php echo $_SESSION['username'];?></h1>
+			<h6 id="welcomeHeaderFullName"><?php echo $_SESSION['fullName'];?></h3>
+		</div>
+		<div class="uploadFile">
+			<p id="uploadFileHeader">Upload your timetable in iCalendar file or '.ics' below!</p>
+			<form id="uploadForm" method="post" action="upload2.php" enctype="multipart/form-data">
+					<input type="file" class="uploadBox" id="uploadBox" name="fileToUpload" style="display:none" />
+					<label for='uploadBox' id="chooseFileButton"><strong>Choose a file to upload</strong></label>
+					<button id="uploadButton" type="submit" style="display:none">Upload</button>
+				</div>
+			</form>
+		<div class="uploadButton">
+		</div>
+		<div class="timetable">
+			<p>Your Timetable</p>
+			<?php 
+				$serializedArray=gettingFilenameWithUsername($_SESSION['username']);
+				echo "<p> $serializedArray </p>";
+				$array=unserialize($serializedArray);
+				print_r($array);
+
+				printTableArray($array);
+			?>
+		</div>
 	</div>
 	<div class="footer">
 		<p style="text-align: left;"> &copy Cleeque 2016</p>

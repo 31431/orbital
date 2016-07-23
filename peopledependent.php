@@ -45,7 +45,7 @@ include("groupFunction.php");
 			initialiseWeekArray($userTimeslotArray);
 			$filename=gettingFilename($userID);
 			//echo "Filename for $subvalue is $filename<br>";
-			fillingArray('uploads/'.$filename,$userTimeslotArray);
+			$userTimeslotArray=unserialize($filename);
 			comparison($userTimeslotArray, $freeTimeArray);
 
 		}
