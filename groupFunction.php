@@ -138,14 +138,15 @@ function listingAllGroups($usernameSession){
 	if(empty($groupArray)){
 		echo "<h2> You have no groups! Please create one!</h2>";
 	} else {
-	echo "<form action='addmember.php' method='post'>";
+	echo "<form action='addmember.php' method='post' id='choosingMember'>";
 	foreach($groupArray as $key=>$value){
 		foreach ($value as $subkey => $subvalue) {
 			$groupName=gettingGroupNameFromID($subvalue);
-			echo "<input type='radio' name='groupNameSelected' value='$subvalue'> $groupName";
+			echo "<input type='radio' name='groupNameSelected' value='$subvalue' style='display: none;'></input>";
+			echo "<label for='groupNameSelected' class='groupName'><strong>$groupName</strong></label>";
 		}
 	}
-	echo " <input type='submit' value='Go!' name='submit'>";
+	echo " <input type='submit' value='Go!' name='submit' id='submitChosenGroup' style='display:none;'>";
 	echo "</form>";
 	};	
 	unset($_SESSION['groupID']);
@@ -165,7 +166,9 @@ function gettingFilenameWithUsername($username){
 	$sql= "SELECT filename FROM userid WHERE username='$username' ";
 	$stmt = $database->prepare($sql);
 	$stmt->execute();
-	return $stmt->fetchColumn();
+	$result= $stmt->fetchColumn();
+	$result = unserialize($result);
+	return $result;
 }
 
 

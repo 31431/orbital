@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var animationSpeed=500;
 	var pausePeriod= 3000;
 	var currentSlide=1;
-	var $slideContainer = $('.main').find('.slider');
+	var $slideContainer = $('.mainIndex').find('.slider');
 	var $slides = $('.slider').find('.slide');
 	var $sliderController = $('.slider').find('.sliderController');
 	var $sliderSymbols = $sliderController.find('.p'); 
@@ -176,6 +176,13 @@ $(document).ready(function(){
 		console.log(e);
 		$('form').trigger('submit');
 	});
+
+	$('.groupName').on('click',function(e){
+		var groupNameForm = document.getElementById('choosingMember');
+		$(this).prev().attr('checked','checked');
+		$('#submitChosenGroup').trigger('click');
+	})
+
 
 
 

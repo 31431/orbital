@@ -108,7 +108,7 @@ try {
 		
 
 	</div>
-	<div class="main">
+	<div class="mainIndex">
 		<div class="slider">
 			<div class="sliderController">
 				<p id="slideBack" style="font-size: 100px; color: white; float: left; 	left: 2%;cursor:pointer"><</p>
